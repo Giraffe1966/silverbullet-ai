@@ -131,7 +131,7 @@ export class OpenAIProvider extends AbstractProvider {
         headers["Authorization"] = `Bearer ${this.apiKey}`;
       }
 
-      const response = await fetch(
+      const response = await nativeFetch(
         `${this.baseUrl}/models`,
         {
           method: "GET",
@@ -169,7 +169,7 @@ export class OpenAIProvider extends AbstractProvider {
         "Content-Type": "application/json",
       };
 
-      const response = await fetch(
+      const response = await nativeFetch(
         this.baseUrl + "/chat/completions",
         {
           method: "POST",
@@ -227,7 +227,7 @@ export class OpenAIEmbeddingProvider extends AbstractEmbeddingProvider {
       headers["Authorization"] = `Bearer ${this.apiKey}`;
     }
 
-    const response = await fetch(
+    const response = await nativeFetch(
       `${this.baseUrl}/embeddings`,
       {
         method: "POST",
